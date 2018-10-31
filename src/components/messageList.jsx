@@ -4,7 +4,9 @@ import Message from './message.jsx';
 
 const MessageList = (props) => {
   return (
-    <Message />
+      props.messages.map(message => {
+          return <Message />
+      })
     );
 }
 
