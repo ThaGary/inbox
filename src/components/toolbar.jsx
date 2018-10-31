@@ -2,9 +2,7 @@ import React from 'react';
 import '../App.css';
 
 const Toolbar = (props) => {
-  render() {
     return (
-      <>
         <div className="row toolbar">
           <div className="col-md-12">
             <p className="pull-right">
@@ -43,9 +41,8 @@ const Toolbar = (props) => {
             </button>
           </div>
         </div>
-      <>
     );
   }
-}
+
 
 export default Toolbar;
