@@ -2,9 +2,8 @@ import React from 'react';
 import '../App.css';
 
 const Message = (props) => {
-    console.log(props.message)
   return (
-    <div className="row message unread">
+    <div className={props.message.read ? "row message read" : "row message unread"} onClick={() => props.messageRead(props.message.id)}>
             <div className="col-xs-1">
                 <div className="row">
                 <div className="col-xs-2">
