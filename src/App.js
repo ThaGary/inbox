@@ -16,24 +16,8 @@ async componentDidMount() {
   this.setState({ messages: json });
 }
 
-messageSelected = async(id) => {
+messageSelected = (id) => {
   console.log('messageSelected', id)
-
-  let message = {
-    messageIds: [id],
-    command: "selected",
-    "selected": true
-  }
-
-  const result = await fetch('http://localhost:8082/api/messages', {
-    method: 'PATCH',
-    body: JSON.stringify(message),
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    }
-  })
-
   const updatedMessages = this.state.messages.map(message => {
     if (message.id === id) {
       message.selected = !message.selected;
@@ -45,8 +29,11 @@ messageSelected = async(id) => {
   })
 }
 
-markAsRead = () => {
+markAsRead = (id) => {
   console.log('markAsRead')
+  const selectedMessages = this.state.messages.filter(message => message.selected === true)
+  console.log('selectedMessages', selectedMessages)
+  selectedMessages.forEach(message => this.messageRead(message.id))
 }
 
 messageRead = async (id) => {
@@ -69,7 +56,7 @@ messageRead = async (id) => {
 
   const updatedMessages = this.state.messages.map(message => {
     if (message.id === id) {
-      message.read = !message.read;
+      message.read = true;
     }
     return message;
   })
