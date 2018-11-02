@@ -10,11 +10,15 @@ const Toolbar = (props) => {
               unread messages
             </p>
 
+            <a class="btn btn-danger">
+              <i class="fa fa-plus"></i>
+            </a>
+
             <button className="btn btn-default">
               <i className={true ? "fa fa-minus-square-o" : "fa fa-check-square-o"}></i>
             </button>
 
-            <button className="btn btn-default">
+            <button onClick={props.markAsRead} className="btn btn-default">
               Mark As Read
             </button>
 

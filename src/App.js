@@ -15,6 +15,11 @@ async componentDidMount() {
   const json = await response.json()
   this.setState({ messages: json });
 }
+
+markAsRead = () => {
+  console.log('markAsRead')
+}
+
 messageRead = async (id) => {
   console.log('messageRead', id)
 
@@ -46,7 +51,7 @@ messageRead = async (id) => {
   render() {
     return (
       <div className="App">
-        <Toolbar />
+        <Toolbar markAsRead={this.markAsRead}/>
         <MessageList messages={this.state.messages} messageRead={this.messageRead}/>
       </div>
     );
