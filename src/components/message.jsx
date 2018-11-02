@@ -3,7 +3,7 @@ import '../App.css';
 
 const Message = (props) => {
   return (
-    <div className={props.message.read ? "row message read" : "row message unread"} onClick={() => props.messageRead(props.message.id)}>
+    <div>
             <div className="col-xs-1">
                 <div className="row">
                 <div className="col-xs-2">
@@ -14,7 +14,7 @@ const Message = (props) => {
                 </div>
                 </div>
             </div>
-            <div className="col-xs-11">
+            <div className="col-xs-11" className={props.message.read ? "row message read" : "row message unread"} onClick={() => props.messageRead(props.message.id)}>
                 <a href="#">
                 {props.message.subject}
                 </a>
